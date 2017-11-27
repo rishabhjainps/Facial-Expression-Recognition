@@ -40,10 +40,10 @@ balance = balance_class(Y)
 N, D = X.shape
 X = X.reshape(N, 48, 48, 1)
 
-# Split in  training and testing set in 80:20 ratio
+# Split in  training set : validation set :  testing set in 80:10:10
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1, random_state=0)
 y_train = (np.arange(num_class) == y_train[:, None]).astype(np.float32)
 y_test = (np.arange(num_class) == y_test[:, None]).astype(np.float32)
 
@@ -128,20 +128,19 @@ def baseline_model_saved():
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[categorical_accuracy])
     return model
 
-is_model_saved = True
+is_model_saved = False
 
 # If model is not saved train the CNN model otherwise just load the weights
 if(is_model_saved==False ):
     # Train model
     model = baseline_model()
-    # Note : Here test data is used as validation data
-    # validation_data: Data on which to evaluate the loss and any model metrics at the end of each epoch.
-    # The model will not be trained on validation data.
+    # Note : 3259 samples is used as validation data &   28,709  as training samples
+
     model.fit(X_train, y_train,
               batch_size=batch_size,
               epochs=epochs,
               verbose=2,
-              validation_data=(X_test, y_test))
+              validation_split=0.1111)
     model_json = model.to_json()
     with open("model_4layer_2_2_pool.json", "w") as json_file:
         json_file.write(model_json)
