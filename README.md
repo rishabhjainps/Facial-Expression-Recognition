@@ -3,7 +3,7 @@ We have developed convolutional neural networks (CNN) for a facial expression re
 
 
 ## Data :
-We trained and tested our models on the data set from the [Kaggle Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge), which comprises 48-by-48-pixel grayscale images of human faces,each labeled with one of 7 emotion categories: anger, disgust, fear, happiness, sadness, surprise, and neutral. We used a image set of 35,887 examples, with training set to test set as 80:20.
+We trained and tested our models on the data set from the [Kaggle Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge), which comprises 48-by-48-pixel grayscale images of human faces,each labeled with one of 7 emotion categories: anger, disgust, fear, happiness, sadness, surprise, and neutral. We used a image set of 35,887 examples, with training set : dev set: test set as 80:10:10.
 
 ## Library Used:
    <ul>
