@@ -1,6 +1,11 @@
 *.pdf
 *.csv
 .idea
+
+/heirarchyNegative
+/misclassifyInspect
+show_image.py
+
 *.pyc
 .pyc/
 .idea
